@@ -17,9 +17,9 @@ public class QuickStartSample {
                 new PropertiesConfiguration("C:\\Users\\DELL\\Desktop\\pfe\\OpenHR\\src\\main\\java\\com\\hracces\\openhr\\conf\\openhr.properties"));
 
 
-        IHRUser user=null;
+        IHRUser user = null;
 
-        try{
+        try {
             user = session.connectUser("HRAUSER", "SECRET");
 
             HRDossierCollectionParameters parameters = new HRDossierCollectionParameters();
@@ -36,7 +36,7 @@ public class QuickStartSample {
             HRDossierCollection dossierCollection = new HRDossierCollection(parameters, user.getMainConversation(), user.getRole("EMPLOYEE(123456)"), new HRDossierFactory(HRDossierFactory.TYPE_DOSSIER));
 
 
-            HRDossier employeeDossier = dossierCollection.loadDossier(new HRKey("HRA","123456"));
+            HRDossier employeeDossier = dossierCollection.loadDossier(new HRKey("HRA", "123456"));
 
             HROccur birthOccurrence = employeeDossier.getDataSectionByName("10").getOccur();
 
@@ -63,7 +63,7 @@ public class QuickStartSample {
         // Configuring logging system to use Log4J
         HRApplication.setLoggingSystem(HRLoggingSystem.LOG4J);
         // Configuring Log4J from given configuration file
-        HRApplication.configureLogs("C:\\Users\\DELL\\Desktop\\pfe\\OpenHR\\src\\main\\java\\com\\hracces\\openhr\\conf\\log4j.properties");
+        //    HRApplication.configureLogs("C:\\Users\\DELL\\Desktop\\pfe\\OpenHR\\src\\main\\java\\com\\hracces\\openhr\\conf\\log4j.properties");
 
         SpringApplication.run(OpenHrApplication.class, args);
     }
